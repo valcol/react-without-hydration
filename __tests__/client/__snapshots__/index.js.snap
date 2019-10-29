@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render correctly client side, with SSR, no option  1`] = `
+<div>
+  <section
+    data-no-hydrate="true"
+  >
+    <div
+      class="label"
+    >
+      some content sever side
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Render correctly client side, with SSR, onUpdate  1`] = `
+<div>
+  <section
+    data-no-hydrate="true"
+  >
+    <div
+      class="label"
+    >
+      some content set client side via onUpdate
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Render correctly client side, without SSR, disableFallback at true 1`] = `
+<div>
+  <section />
+</div>
+`;
+
+exports[`Render correctly client side, without SSR, no option  1`] = `
+<div>
+  <div
+    class="label"
+  >
+    some content client side
+  </div>
+</div>
+`;

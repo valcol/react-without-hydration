@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render correctly server side  1`] = `"<section data-no-hydrate=\\"true\\" data-reactroot=\\"\\"><div class=\\"label\\">some content server side</div></section>"`;
