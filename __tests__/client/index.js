@@ -4,7 +4,7 @@
 
 import React from "react";
 import ReactDom from "react-dom";
-import withoutHydrate from "../../src";
+import withoutHydration from "../../src";
 
 const Component = ({ label }) => <div className="label">{label}</div>;
 const SSRhtml =
@@ -14,10 +14,10 @@ test("Render correctly client side, with SSR, no option ", () => {
     const elem = document.createElement("div");
     elem.innerHTML = SSRhtml;
 
-    const ComponentWithoutHydrateClient = withoutHydrate()(Component);
+    const ComponentwithoutHydrationClient = withoutHydration()(Component);
 
     ReactDom.hydrate(
-        <ComponentWithoutHydrateClient label="some content client side" />,
+        <ComponentwithoutHydrationClient label="some content client side" />,
         elem
     );
 
@@ -28,14 +28,14 @@ test("Render correctly client side, with SSR, onUpdate ", () => {
     const elem = document.createElement("div");
     elem.innerHTML = SSRhtml;
 
-    const ComponentWithoutHydrateClient = withoutHydrate({
+    const ComponentwithoutHydrationClient = withoutHydration({
         onUpdate: ({ label }, domNode) => {
             domNode.getElementsByClassName("label")[0].innerHTML = label;
         }
     })(Component);
 
     ReactDom.hydrate(
-        <ComponentWithoutHydrateClient label="some content set client side via onUpdate" />,
+        <ComponentwithoutHydrationClient label="some content set client side via onUpdate" />,
         elem
     );
 
@@ -45,14 +45,14 @@ test("Render correctly client side, with SSR, onUpdate ", () => {
 test("Render correctly client side, without SSR, no option ", () => {
     const elem = document.createElement("div");
 
-    const ComponentWithoutHydrateClient = withoutHydrate({
+    const ComponentwithoutHydrationClient = withoutHydration({
         onUpdate: ({ label }, domNode) => {
             domNode.getElementsByClassName("label")[0].innerHTML = label;
         }
     })(Component);
 
     ReactDom.hydrate(
-        <ComponentWithoutHydrateClient label="some content client side" />,
+        <ComponentwithoutHydrationClient label="some content client side" />,
         elem
     );
 
@@ -62,12 +62,12 @@ test("Render correctly client side, without SSR, no option ", () => {
 test("Render correctly client side, without SSR, disableFallback at true", () => {
     const elem = document.createElement("div");
 
-    const ComponentWithoutHydrateClient = withoutHydrate({
+    const ComponentwithoutHydrationClient = withoutHydration({
         disableFallback: true
     })(Component);
 
     ReactDom.hydrate(
-        <ComponentWithoutHydrateClient label="some content client side" />,
+        <ComponentwithoutHydrationClient label="some content client side" />,
         elem
     );
 

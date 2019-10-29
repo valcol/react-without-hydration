@@ -3,13 +3,13 @@ import exenv from "exenv";
 
 const isClientSide = exenv.canUseDOM;
 
-const withoutHydrateServerSide = Component => props => (
+const withoutHydrationServerSide = Component => props => (
     <section data-no-hydrate={true}>
         <Component {...props} />
     </section>
 );
 
-const withoutHydrateClientSide = ({
+const withoutHydrationClientSide = ({
     onUpdate = null,
     disableFallback = false
 }) => Component => props => {
@@ -46,10 +46,10 @@ const withoutHydrateClientSide = ({
     return <Component {...props} />;
 };
 
-const withoutHydrate = (options = {}) => {
-    if (isClientSide) return withoutHydrateClientSide(options);
+const withoutHydration = (options = {}) => {
+    if (isClientSide) return withoutHydrationClientSide(options);
 
-    return withoutHydrateServerSide;
+    return withoutHydrationServerSide;
 };
 
-export default withoutHydrate;
+export default withoutHydration;

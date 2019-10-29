@@ -25,7 +25,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var isClientSide = _exenv["default"].canUseDOM;
 
-var withoutHydrateServerSide = function withoutHydrateServerSide(Component) {
+var withoutHydrationServerSide = function withoutHydrationServerSide(Component) {
   return function (props) {
     return _react["default"].createElement("section", {
       "data-no-hydrate": true
@@ -33,7 +33,7 @@ var withoutHydrateServerSide = function withoutHydrateServerSide(Component) {
   };
 };
 
-var withoutHydrateClientSide = function withoutHydrateClientSide(_ref) {
+var withoutHydrationClientSide = function withoutHydrationClientSide(_ref) {
   var _ref$onUpdate = _ref.onUpdate,
       onUpdate = _ref$onUpdate === void 0 ? null : _ref$onUpdate,
       _ref$disableFallback = _ref.disableFallback,
@@ -66,11 +66,11 @@ var withoutHydrateClientSide = function withoutHydrateClientSide(_ref) {
   };
 };
 
-var withoutHydrate = function withoutHydrate() {
+var withoutHydration = function withoutHydration() {
   var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  if (isClientSide) return withoutHydrateClientSide(options);
-  return withoutHydrateServerSide;
+  if (isClientSide) return withoutHydrationClientSide(options);
+  return withoutHydrationServerSide;
 };
 
-var _default = withoutHydrate;
+var _default = withoutHydration;
 exports["default"] = _default;

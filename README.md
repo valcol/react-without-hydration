@@ -1,4 +1,4 @@
-# react-without-hydrate
+# react-without-hydration
 
 Skip the hydration step on the client for a component rendered server side.
 
@@ -7,26 +7,26 @@ Skip the hydration step on the client for a component rendered server side.
 #### npm
 
 ```
-npm install react-without-hydrate --save
+npm install react-without-hydration --save
 ```
 
 #### yarn
 
 ```
-yarn add react-without-hydrate
+yarn add react-without-hydration
 ```
 
 ## How to use
 
 ```js
-import withoutHydrate from "react-without-hydrate";
+import withoutHydration from "react-without-hydration";
 import Card from "../Card";
 
-const CardWithoutHydrate = withoutHydrate()(Card);
+const CardwithoutHydration = withoutHydration()(Card);
 
 export default class App extends React.Component {
     render() {
-        return <CardWithoutHydrate title="my card" />;
+        return <CardwithoutHydration title="my card" />;
     }
 }
 ```
@@ -48,10 +48,10 @@ A function to update the DOM after a props update.
 Receives `props` and `ref` which are the props passed to the component and its ref which represent the Dom node of the component.
 
 ```js
-import withoutHydrate from "react-without-hydrate";
+import withoutHydration from "react-without-hydration";
 import Card from "../Card";
 
-const CardWithoutHydrate = withoutHydrate({
+const CardwithoutHydration = withoutHydration({
     onUpdate: ({ title }, ref) => {
         ref.getElementsByClassName("title")[0].innerHTML = label;
     }
@@ -62,13 +62,13 @@ const CardWithoutHydrate = withoutHydrate({
 
 A boolean set at `false` by default.
 
-Allows you to disable the server-side rendering check, which means that the component will **never be rendered**, even if it has not been rendered on the server side. Can be usefull if you don't render a component wrapped by `withoutHydrate` server side, but you do client side. Be cautious.
+Allows you to disable the server-side rendering check, which means that the component will **never be rendered**, even if it has not been rendered on the server side. Can be usefull if you don't render a component wrapped by `withoutHydration` server side, but you do client side. Be cautious.
 
 ```js
-import withoutHydrate from "react-without-hydrate";
+import withoutHydration from "react-without-hydration";
 import Card from "../Card";
 
-const CardWithoutHydrate = withoutHydrate({
+const CardwithoutHydration = withoutHydration({
     disableFallback: true
 })(Card);
 ```
