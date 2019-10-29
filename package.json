@@ -1,6 +1,6 @@
 {
   "name": "react-without-hydration",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Skip the hydration step on the client for a component rendered server side.",
   "main": "dist/index.js",
   "files": [
