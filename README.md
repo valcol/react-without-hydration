@@ -22,11 +22,11 @@ yarn add react-without-hydration
 import withoutHydration from "react-without-hydration";
 import Card from "../Card";
 
-const CardwithoutHydration = withoutHydration()(Card);
+const CardWithoutHydration = withoutHydration()(Card);
 
 export default class App extends React.Component {
     render() {
-        return <CardwithoutHydration title="my card" />;
+        return <CardWithoutHydration title="my card" />;
     }
 }
 ```
@@ -51,7 +51,7 @@ Receives `props` and `ref` which are the props passed to the component and its r
 import withoutHydration from "react-without-hydration";
 import Card from "../Card";
 
-const CardwithoutHydration = withoutHydration({
+const CardWithoutHydration = withoutHydration({
     onUpdate: ({ title }, ref) => {
         ref.getElementsByClassName("title")[0].innerHTML = label;
     }
@@ -68,7 +68,7 @@ Allows you to disable the server-side rendering check, which means that the comp
 import withoutHydration from "react-without-hydration";
 import Card from "../Card";
 
-const CardwithoutHydration = withoutHydration({
+const CardWithoutHydration = withoutHydration({
     disableFallback: true
 })(Card);
 ```
