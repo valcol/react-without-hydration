@@ -1,47 +1,47 @@
 {
-  "name": "react-without-hydration",
-  "version": "1.0.0",
-  "description": "Skip the hydration step on the client for a component rendered server side.",
-  "main": "dist/index.js",
-  "files": [
-    "/dist"
-  ],
-  "scripts": {
-    "test": "jest",
-    "build": "./node_modules/.bin/babel src --out-file dist/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/valcol/react-without-hydration.git"
-  },
-  "keywords": [
-    "react",
-    "hydrate",
-    "hydration",
-    "ssr"
-  ],
-  "author": "valcol",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/valcol/react-without-hydration/issues"
-  },
-  "homepage": "https://github.com/valcol/react-without-hydration#readme",
-  "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.6.4",
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "@babel/preset-react": "^7.6.3",
-    "babel-jest": "^24.9.0",
-    "jest": "^24.9.0",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "react-test-renderer": "^16.11.0"
-  },
-  "dependencies": {
-    "exenv": "^1.2.2"
-  }
+    "name": "react-without-hydration",
+    "version": "1.1.0",
+    "description": "Skip the hydration step on the client for a component rendered server side.",
+    "main": "dist/index.js",
+    "files": [
+        "/dist"
+    ],
+    "scripts": {
+        "test": "jest",
+        "build": "./node_modules/.bin/babel src --out-file dist/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/valcol/react-without-hydration.git"
+    },
+    "keywords": [
+        "react",
+        "hydrate",
+        "hydration",
+        "ssr"
+    ],
+    "author": "valcol",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/valcol/react-without-hydration/issues"
+    },
+    "homepage": "https://github.com/valcol/react-without-hydration#readme",
+    "peerDependencies": {
+        "react": "^16.8.0",
+        "react-dom": "^16.8.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.6.4",
+        "@babel/core": "^7.6.4",
+        "@babel/preset-env": "^7.6.3",
+        "@babel/preset-react": "^7.6.3",
+        "babel-jest": "^24.9.0",
+        "jest": "^24.9.0",
+        "react": "^16.8.0",
+        "react-dom": "^16.8.0",
+        "react-test-renderer": "^16.11.0"
+    },
+    "dependencies": {
+        "exenv": "^1.2.2"
+    }
 }

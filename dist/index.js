@@ -25,11 +25,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var isClientSide = _exenv["default"].canUseDOM;
 
-var withoutHydrationServerSide = function withoutHydrationServerSide(Component) {
+var getDisplayName = function getDisplayName(WrappedComponent) {
+  return WrappedComponent.displayName || WrappedComponent.name || "Component";
+};
+
+var withoutHydrationServerSide = function withoutHydrationServerSide(WrappedComponent) {
   return function (props) {
     return _react["default"].createElement("section", {
       "data-no-hydrate": true
-    }, _react["default"].createElement(Component, props));
+    }, _react["default"].createElement(WrappedComponent, props));
   };
 };
 
@@ -38,8 +42,8 @@ var withoutHydrationClientSide = function withoutHydrationClientSide(_ref) {
       onUpdate = _ref$onUpdate === void 0 ? null : _ref$onUpdate,
       _ref$disableFallback = _ref.disableFallback,
       disableFallback = _ref$disableFallback === void 0 ? false : _ref$disableFallback;
-  return function (Component) {
-    return function (props) {
+  return function (WrappedComponent) {
+    var WithoutHydration = function WithoutHydration(props) {
       var rootRef = (0, _react.useRef)(null);
 
       var _useState = (0, _react.useState)(undefined),
@@ -61,8 +65,11 @@ var withoutHydrationClientSide = function withoutHydrationClientSide(_ref) {
         },
         suppressHydrationWarning: true
       });
-      return _react["default"].createElement(Component, props);
+      return _react["default"].createElement(WrappedComponent, props);
     };
+
+    WithoutHydration.displayName = "WithoutHydration(".concat(getDisplayName(WrappedComponent), ")");
+    return WithoutHydration;
   };
 };
 
