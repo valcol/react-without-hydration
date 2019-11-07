@@ -1,5 +1,7 @@
 # react-without-hydration
 
+![npm](https://img.shields.io/npm/dw/react-without-hydration)
+
 Skip the hydration step on the client for a component rendered server side.
 
 ## Install
