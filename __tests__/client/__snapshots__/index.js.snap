@@ -1,6 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render correctly client side, with SSR, no option  1`] = `
+exports[`With SSR Render correctly client side, forceHydration  1`] = `
+<div>
+  <div
+    class="label"
+  >
+    some content client side
+  </div>
+</div>
+`;
+
+exports[`With SSR Render correctly client side, no option  1`] = `
 <div>
   <section
     data-no-hydrate="true"
@@ -14,7 +24,7 @@ exports[`Render correctly client side, with SSR, no option  1`] = `
 </div>
 `;
 
-exports[`Render correctly client side, with SSR, onUpdate  1`] = `
+exports[`With SSR Render correctly client side, onUpdate  1`] = `
 <div>
   <section
     data-no-hydrate="true"
@@ -28,13 +38,23 @@ exports[`Render correctly client side, with SSR, onUpdate  1`] = `
 </div>
 `;
 
-exports[`Render correctly client side, without SSR, disableFallback at true 1`] = `
+exports[`Without SSR Render correctly client side, disableFallback at true 1`] = `
 <div>
   <section />
 </div>
 `;
 
-exports[`Render correctly client side, without SSR, no option  1`] = `
+exports[`Without SSR Render correctly client side, no option  1`] = `
+<div>
+  <div
+    class="label"
+  >
+    some content client side
+  </div>
+</div>
+`;
+
+exports[`Without SSR Render correctly client side, onUpdate  1`] = `
 <div>
   <div
     class="label"
