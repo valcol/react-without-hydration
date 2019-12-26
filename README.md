@@ -1,6 +1,9 @@
 # react-without-hydration
 
-![npm](https://img.shields.io/npm/dw/react-without-hydration)
+![npm](https://img.shields.io/npm/dt/react-without-hydration)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/valcol/react-without-hydration/NPM%20Publish)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-without-hydration)
+![npm](https://img.shields.io/npm/v/react-without-hydration)
 
 Skip the hydration step on the client for a component rendered server side.
 
@@ -40,6 +43,25 @@ If the component isn't rendered server side, it will render and behave normally.
 ### What if I don't want to hydrate but still want to update the DOM ?
 
 You can use `onUpdate` to update the DOM after a props update.
+
+## Props
+
+#### forceHydration
+
+Pass `forceHydration` at true to force hydration even if the component was rendered server side.
+
+```js
+import withoutHydration from "react-without-hydration";
+import Card from "../Card";
+
+const CardWithoutHydration = withoutHydration()(Card);
+
+export default class App extends React.Component {
+    render() {
+        return <CardWithoutHydration title="my card" forceHydration />;
+    }
+}
+```
 
 ## Options
 
