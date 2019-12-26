@@ -4,63 +4,60 @@ import exenv from "exenv";
 const isClientSide = exenv.canUseDOM;
 
 const getDisplayName = WrappedComponent => {
-    return WrappedComponent.displayName || WrappedComponent.name || "Component";
+  return WrappedComponent.displayName || WrappedComponent.name || "Component";
 };
 
 const withoutHydrationServerSide = WrappedComponent => props => (
-    <section data-no-hydrate={true}>
-        <WrappedComponent {...props} />
-    </section>
+  <section data-no-hydrate={true}>
+    <WrappedComponent {...props} />
+  </section>
 );
 
 const withoutHydrationClientSide = ({
-    onUpdate = null,
-    disableFallback = false
+  onUpdate = null,
+  disableFallback = false
 }) => WrappedComponent => {
-    const WithoutHydration = props => {
-        const rootRef = useRef(null);
-        const [wasRenderedServerSide, setWasRenderedServerSide] = useState(
-            undefined
-        );
+  const WithoutHydration = ({ forceHydration = false, ...props }) => {
+    const rootRef = useRef(null);
+    const [shouldHydrate, setShouldHydrate] = useState(undefined);
 
-        useLayoutEffect(() => {
-            setWasRenderedServerSide(
-                !!rootRef.current.getAttribute("data-no-hydrate")
-            );
-        }, [rootRef]);
+    useLayoutEffect(() => {
+      if (shouldHydrate) return;
+      const wasRenderedServerSide = !!rootRef.current.getAttribute(
+        "data-no-hydrate"
+      );
+      setShouldHydrate(
+        (!wasRenderedServerSide && !disableFallback) || forceHydration
+      );
+    });
 
-        useLayoutEffect(() => {
-            if (!wasRenderedServerSide || !onUpdate) return;
-            onUpdate(props, rootRef.current);
-        });
+    useLayoutEffect(() => {
+      if (shouldHydrate || shouldHydrate === undefined || !onUpdate) return;
+      onUpdate(props, rootRef.current);
+    });
 
-        if (
-            isClientSide &&
-            (wasRenderedServerSide === undefined ||
-                wasRenderedServerSide ||
-                disableFallback)
-        )
-            return (
-                <section
-                    ref={rootRef}
-                    dangerouslySetInnerHTML={{ __html: "" }}
-                    suppressHydrationWarning
-                />
-            );
+    if (!shouldHydrate)
+      return (
+        <section
+          ref={rootRef}
+          dangerouslySetInnerHTML={{ __html: "" }}
+          suppressHydrationWarning
+        />
+      );
 
-        return <WrappedComponent {...props} />;
-    };
+    return <WrappedComponent {...props} />;
+  };
 
-    WithoutHydration.displayName = `WithoutHydration(${getDisplayName(
-        WrappedComponent
-    )})`;
+  WithoutHydration.displayName = `WithoutHydration(${getDisplayName(
+    WrappedComponent
+  )})`;
 
-    return WithoutHydration;
+  return WithoutHydration;
 };
 const withoutHydration = (options = {}) => {
-    if (isClientSide) return withoutHydrationClientSide(options);
+  if (isClientSide) return withoutHydrationClientSide(options);
 
-    return withoutHydrationServerSide;
+  return withoutHydrationServerSide;
 };
 
 export default withoutHydration;
