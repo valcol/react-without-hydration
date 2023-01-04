@@ -1,25 +1,36 @@
-# react-without-hydration
-
-![npm](https://img.shields.io/npm/dt/react-without-hydration)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/valcol/react-without-hydration/NPM%20Publish)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-without-hydration)
-![npm](https://img.shields.io/npm/v/react-without-hydration)
-
-Skip the hydration step on the client for a component rendered server side.
-
-## Install
-
-#### npm
-
-```
-npm install react-without-hydration --save
-```
-
-#### yarn
-
-```
-yarn add react-without-hydration
-```
+<div align="center">
+  <h1>
+    <br/>
+    <br/>
+    ☔
+    <br />
+    react-without-hydration
+    <br />
+    <br />
+    <br />
+  </h1>
+  <sup>
+    <br />
+    <br />
+    <a href="https://www.npmjs.com/package/react-without-hydration">
+       <img src="https://img.shields.io/github/actions/workflow/status/valcol/react-without-hydration/main.yml" alt="npm package" />
+    </a>
+    <a href="https://www.npmjs.com/package/react-without-hydration">
+       <img src="https://img.shields.io/bundlephobia/minzip/react-without-hydration" alt="dep size" />
+    </a>
+    <a href="https://www.npmjs.com/package/react-without-hydration">
+      <img src="https://img.shields.io/npm/v/react-without-hydration" alt="version" />
+    </a>
+    <br />
+  </sup>
+   <h3>Skip the hydration step on the client for a component rendered server side.<h3>
+  <br />
+  <br />
+  <pre>npm i <a href="https://www.npmjs.com/package/react-without-hydration">react-without-hydration</a></pre>
+  <pre>yarn add <a href="https://www.npmjs.com/package/react-without-hydration">react-without-hydration</a></pre>
+  <br />
+  <br />
+</div>
 
 ## How to use
 
@@ -36,6 +47,8 @@ export default class App extends React.Component {
 }
 ```
 
+## FAQ
+
 ### What if my component is also used client side only ?
 
 If the component isn't rendered server side, it will render and behave normally. You can disable this by setting `disableFallback` at `true`.
@@ -46,7 +59,7 @@ You can use `onUpdate` to update the DOM after a props update.
 
 ## Props
 
-#### forceHydration
+#### `forceHydration`
 
 Pass `forceHydration` at true to force hydration even if the component was rendered server side.
 
@@ -65,7 +78,7 @@ export default class App extends React.Component {
 
 ## Options
 
-#### onUpdate
+#### `onUpdate`
 
 A function to update the DOM after a props update.
 
@@ -82,7 +95,7 @@ const CardWithoutHydration = withoutHydration({
 })(Card);
 ```
 
-#### disableFallback
+#### `disableFallback`
 
 A boolean set at `false` by default.
 
