@@ -1,4 +1,5 @@
 <div align="center">
+  <pre>⚠️ Deprecated - Use <a href="https://www.npmjs.com/package/react-hydration-on-demand">react-hydration-on-demand</a></pre>
   <h1>
     <br/>
     <br/>
